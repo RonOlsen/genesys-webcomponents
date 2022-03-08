@@ -1,11 +1,35 @@
+import { newSpecPage } from '@stencil/core/testing';
 import { CalendarModes } from '../../../../common-enums';
 import * as utils from '../../../../utils/dom/manipulate-elements-classes';
 import { GuxCalendar } from '../gux-calendar';
+
+const language = 'en';
 
 describe('gux-calendar', () => {
   let component: GuxCalendar;
   let componentRoot: any;
   let componentShadowRoot: any;
+
+  describe('#render', () => {
+    const components = [GuxCalendar];
+    [
+      `<gux-calendar></gux-calendar>`,
+      `<gux-calendar value="2018-02-13"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Single}" number-of-months="2"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Range}"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Range}" min-date="2019-05-02" max-date="2019-07-10"></gux-calendar>`
+    ].forEach((input, index) => {
+      it(`should render component as expected (${index + 1})`, async () => {
+        const page = await newSpecPage({
+          components,
+          html: input,
+          language
+        });
+
+        expect(page.root).toMatchSnapshot();
+      });
+    });
+  });
 
   beforeEach(async () => {
     component = new GuxCalendar();
@@ -41,7 +65,7 @@ describe('gux-calendar', () => {
         contains: () => false
       },
       focus: jest.fn(),
-      setAttribute: jest.fn()
+      matches: () => true
     };
     // Public
     describe('public', () => {
@@ -62,7 +86,11 @@ describe('gux-calendar', () => {
         expect(component.previewValue).toEqual(rangeStart);
         expect(component.value).toEqual(rangeIso);
       });
-      it('focusPreviewDate', async () => {
+      it('focusPreviewDate will not set focus is the target does not exist', async () => {
+        await component.focusPreviewDate();
+        expect(spyEl.focus).not.toHaveBeenCalled();
+      });
+      it('focusPreviewDate will set focus is the target exists', async () => {
         await component.focusPreviewDate();
         expect(spyEl.focus).not.toHaveBeenCalled();
         componentShadowRoot.querySelector = () => {
@@ -70,10 +98,28 @@ describe('gux-calendar', () => {
         };
         await component.focusPreviewDate();
         expect(spyEl.focus).toHaveBeenCalled();
+        expect(component['focusPreviewDateAfterRender']).toBeFalsy();
+      });
+      it('focusPreviewDate will pend focus is the target exists but rendering is not complete', async () => {
+        const notRenderedSpy = {
+          focus: jest.fn(),
+          matches: () => false
+        };
+        componentShadowRoot.querySelector = () => {
+          return notRenderedSpy;
+        };
+        await component.focusPreviewDate();
+        expect(notRenderedSpy.focus).toHaveBeenCalled();
+        expect(component['focusPreviewDateAfterRender']).toBeTruthy();
       });
     });
     // Private
     describe('private', () => {
+      it('updateFocus', () => {
+        component['focusPreviewDateAfterRender'] = true;
+        component.updateFocus();
+        expect(component['focusPreviewDateAfterRender']).toBeFalsy();
+      });
       it('incrementPreviewDateByMonth', () => {
         jest.useFakeTimers();
         const startingMonth = component.previewValue.getMonth();
