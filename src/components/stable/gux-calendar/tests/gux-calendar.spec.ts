@@ -98,7 +98,7 @@ describe('gux-calendar', () => {
         };
         await component.focusPreviewDate();
         expect(spyEl.focus).toHaveBeenCalled();
-        expect(component['focusPreviewDateAfterRender']).toBeFalsy();
+        expect(component['focusPreviewDateAfterLoad']).toBeFalsy();
       });
       it('focusPreviewDate will pend focus is the target exists but rendering is not complete', async () => {
         const notRenderedSpy = {
@@ -110,16 +110,11 @@ describe('gux-calendar', () => {
         };
         await component.focusPreviewDate();
         expect(notRenderedSpy.focus).toHaveBeenCalled();
-        expect(component['focusPreviewDateAfterRender']).toBeTruthy();
+        expect(component['focusPreviewDateAfterLoad']).toBeTruthy();
       });
     });
     // Private
     describe('private', () => {
-      it('updateFocus', () => {
-        component['focusPreviewDateAfterRender'] = true;
-        component.updateFocus();
-        expect(component['focusPreviewDateAfterRender']).toBeFalsy();
-      });
       it('incrementPreviewDateByMonth', () => {
         jest.useFakeTimers();
         const startingMonth = component.previewValue.getMonth();
