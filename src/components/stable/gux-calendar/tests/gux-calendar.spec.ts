@@ -65,7 +65,7 @@ describe('gux-calendar', () => {
         contains: () => false
       },
       focus: jest.fn(),
-      matches: () => true
+      setAttribute: jest.fn()
     };
     // Public
     describe('public', () => {
@@ -86,11 +86,7 @@ describe('gux-calendar', () => {
         expect(component.previewValue).toEqual(rangeStart);
         expect(component.value).toEqual(rangeIso);
       });
-      it('focusPreviewDate will not set focus is the target does not exist', async () => {
-        await component.focusPreviewDate();
-        expect(spyEl.focus).not.toHaveBeenCalled();
-      });
-      it('focusPreviewDate will set focus is the target exists', async () => {
+      it('focusPreviewDate', async () => {
         await component.focusPreviewDate();
         expect(spyEl.focus).not.toHaveBeenCalled();
         componentShadowRoot.querySelector = () => {
@@ -98,19 +94,6 @@ describe('gux-calendar', () => {
         };
         await component.focusPreviewDate();
         expect(spyEl.focus).toHaveBeenCalled();
-        expect(component['focusPreviewDateAfterLoad']).toBeFalsy();
-      });
-      it('focusPreviewDate will pend focus is the target exists but rendering is not complete', async () => {
-        const notRenderedSpy = {
-          focus: jest.fn(),
-          matches: () => false
-        };
-        componentShadowRoot.querySelector = () => {
-          return notRenderedSpy;
-        };
-        await component.focusPreviewDate();
-        expect(notRenderedSpy.focus).toHaveBeenCalled();
-        expect(component['focusPreviewDateAfterLoad']).toBeTruthy();
       });
     });
     // Private

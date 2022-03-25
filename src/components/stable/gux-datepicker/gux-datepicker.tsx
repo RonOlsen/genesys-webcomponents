@@ -44,6 +44,9 @@ import {
   getIntervalRange
 } from './gux-datepicker.service';
 
+// Class name to add to the gux-datepicker top element when the calendar is active
+const GUX_ACTIVE_CLASS = 'gux-active';
+
 @Component({
   styleUrl: 'gux-datepicker.less',
   tag: 'gux-datepicker',
@@ -66,6 +69,8 @@ export class GuxDatepicker {
   endInputId: string = randomHTMLId('gux-datepicker');
   i18n: GetI18nValue;
 
+  private focusPreviewDateAfterCalendarActive: boolean = false;
+
   @Element()
   root: HTMLElement;
 
@@ -76,7 +81,7 @@ export class GuxDatepicker {
   value: string;
 
   /**
-   * The datepicker label (can be a single label, or two seperated by a comma if it's a range datepicker)
+   * The datepicker label (can be a single label, or two separated by a comma if it's a range datepicker)
    */
   @Prop()
   label: string = '';
@@ -562,10 +567,14 @@ export class GuxDatepicker {
   toggleCalendar() {
     this.active = !this.active;
     if (this.active) {
-      // Wait for render before focusing preview date
-      setTimeout(() => {
+      const picker: HTMLElement =
+        this.root.shadowRoot.querySelector('div.gux-datepicker');
+
+      if (picker.classList.contains(GUX_ACTIVE_CLASS)) {
         void this.calendarElement.focusPreviewDate();
-      });
+      } else {
+        this.focusPreviewDateAfterCalendarActive = true;
+      }
     }
   }
 
@@ -649,6 +658,14 @@ export class GuxDatepicker {
 
   componentDidLoad() {
     this.updateDate();
+  }
+
+  componentDidRender() {
+    // We might get a request to focus the calendar preview date before it renders.
+    if (this.focusPreviewDateAfterCalendarActive) {
+      void this.calendarElement.focusPreviewDate();
+      this.focusPreviewDateAfterCalendarActive = false;
+    }
   }
 
   renderCalendarToggleButton(): JSX.Element {
@@ -736,13 +753,14 @@ export class GuxDatepicker {
   }
 
   render(): JSX.Element {
+    const classes = {
+      'gux-datepicker': true,
+      'gux-disabled': this.disabled
+    };
+    classes[GUX_ACTIVE_CLASS] = this.active;
     return (
       <div
-        class={{
-          'gux-datepicker': true,
-          'gux-active': this.active,
-          'gux-disabled': this.disabled
-        }}
+        class={classes}
         ref={(el: HTMLElement) => (this.datepickerElement = el)}
       >
         {this.renderStartDateField()}

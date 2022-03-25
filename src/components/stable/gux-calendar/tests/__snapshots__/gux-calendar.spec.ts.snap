@@ -161,7 +161,7 @@ exports[`gux-calendar #render should render component as expected (1) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" class="gux-selected" data-date="1647576000000" tabindex="0">
+            <td aria-hidden="false" data-date="1647576000000" tabindex="-1">
               18
               <span class="gux-sr-only">
                 March 2022
@@ -205,7 +205,7 @@ exports[`gux-calendar #render should render component as expected (1) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" data-date="1648180800000" tabindex="-1">
+            <td aria-hidden="false" class="gux-selected" data-date="1648180800000" tabindex="0">
               25
               <span class="gux-sr-only">
                 March 2022
@@ -790,7 +790,7 @@ exports[`gux-calendar #render should render component as expected (3) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" class="gux-selected" data-date="1647576000000" tabindex="0">
+            <td aria-hidden="false" data-date="1647576000000" tabindex="-1">
               18
               <span class="gux-sr-only">
                 March 2022
@@ -834,7 +834,7 @@ exports[`gux-calendar #render should render component as expected (3) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" data-date="1648180800000" tabindex="-1">
+            <td aria-hidden="false" class="gux-selected" data-date="1648180800000" tabindex="0">
               25
               <span class="gux-sr-only">
                 March 2022
@@ -1392,7 +1392,7 @@ exports[`gux-calendar #render should render component as expected (4) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" class="gux-hovered gux-selected gux-start-date" data-date="1647576000000" tabindex="0">
+            <td aria-hidden="false" data-date="1647576000000" tabindex="-1">
               18
               <span class="gux-sr-only">
                 March 2022
@@ -1436,7 +1436,7 @@ exports[`gux-calendar #render should render component as expected (4) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" data-date="1648180800000" tabindex="-1">
+            <td aria-hidden="false" class="gux-hovered gux-selected gux-start-date" data-date="1648180800000" tabindex="0">
               25
               <span class="gux-sr-only">
                 March 2022
@@ -1661,7 +1661,7 @@ exports[`gux-calendar #render should render component as expected (5) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" class="gux-disabled gux-hovered gux-selected gux-start-date" data-date="1647576000000" tabindex="0">
+            <td aria-hidden="false" class="gux-disabled" data-date="1647576000000" tabindex="-1">
               18
               <span class="gux-sr-only">
                 March 2022
@@ -1705,7 +1705,7 @@ exports[`gux-calendar #render should render component as expected (5) 1`] = `
                 March 2022
               </span>
             </td>
-            <td aria-hidden="false" class="gux-disabled" data-date="1648180800000" tabindex="-1">
+            <td aria-hidden="false" class="gux-disabled gux-hovered gux-selected gux-start-date" data-date="1648180800000" tabindex="0">
               25
               <span class="gux-sr-only">
                 March 2022

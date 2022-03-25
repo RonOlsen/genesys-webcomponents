@@ -82,8 +82,6 @@ export class GuxCalendar {
 
   private locale: string = 'en';
 
-  private focusPreviewDateAfterLoad: boolean = false;
-
   emitInput() {
     this.input.emit(this.value);
   }
@@ -114,12 +112,8 @@ export class GuxCalendar {
     const target: HTMLTableCellElement = this.root.shadowRoot.querySelector(
       `td[data-date="${this.previewValue.getTime()}"]`
     );
-
     if (target) {
       target.focus();
-      if (!target.matches(':focus')) {
-        this.focusPreviewDateAfterLoad = true;
-      }
     }
   }
 
@@ -460,11 +454,6 @@ export class GuxCalendar {
 
   componentDidRender() {
     this.updateRangeElements();
-    // We might get a request to focus the calendar preview date before it renders.
-    if (this.focusPreviewDateAfterLoad) {
-      void this.focusPreviewDate();
-      this.focusPreviewDateAfterLoad = false;
-    }
   }
 
   renderMonthHeader() {
