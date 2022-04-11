@@ -2,6 +2,103 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.58](https://inindca///compare/v3.0.0-alpha.57...v3.0.0-alpha.58) (2022-04-07)
+
+
+### Features
+
+* **popup:** moved gux-popup to stable ([46dfb23](https://inindca///commit/46dfb23c70f38d9dd9f59dedd1a0dc9ceea7af6a))
+
+## [3.0.0-alpha.57](https://inindca///compare/v3.0.0-alpha.56...v3.0.0-alpha.57) (2022-04-06)
+
+
+### Features
+
+* **gux-tooltip:** add methods to hide and show tooltip, show/hide tooltip on focus to tabs ([db9d7d0](https://inindca///commit/db9d7d059e5b26edbaadd215dbd254631d1c68a5))
+
+## [3.0.0-alpha.56](https://inindca///compare/v3.0.0-alpha.55...v3.0.0-alpha.56) (2022-04-05)
+
+
+### Features
+
+* **color-palette:** checked beta/stable components for discrepancies in styling ([c5eb212](https://inindca///commit/c5eb212a7cc330433c5179519b2cc147144a17d1))
+* **color-palette:** updating black and grey palettes for consistency ([4efe4ac](https://inindca///commit/4efe4acf38ee18191ba6bc1f9ef9606553c8ddf5))
+* **gux-tag:** aqua-green not passing accesibility checks changed text color to gux-black-30 ([47bc416](https://inindca///commit/47bc41658953d9523f08dcf387e83211440cef3a))
+
+## [3.0.0-alpha.55](https://inindca///compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2022-04-04)
+
+
+### Bug Fixes
+
+* **gux-tooltip-title:** gux-advanced tabs tooltip sort issue ([61ea65d](https://inindca///commit/61ea65d679e667f5d36b2b10493c37ce65ed3bfb))
+
+## [3.0.0-alpha.54](https://inindca///compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2022-03-31)
+
+
+### Features
+
+* **gux-dropdown:** explicitly set shadowDOM to false ([6d22c6f](https://inindca///commit/6d22c6f1d932da7daf120b8839a426b1c8c9c54e))
+
+## [3.0.0-alpha.53](https://inindca///compare/v3.0.0-alpha.52...v3.0.0-alpha.53) (2022-03-30)
+
+
+### Bug Fixes
+
+* **gux-tooltip-title:** fix dynamic tooltip text bug ([c5bd4cb](https://inindca///commit/c5bd4cbe6c58b5bf89df1691b168d1d5175999a3))
+* **gux-tooltip-title:** remove need for hard coding tab width, update title slot API for adv. tabs ([00a49dd](https://inindca///commit/00a49dd5039aefa9fe2d355674535c55fdea465b))
+
+## [3.0.0-alpha.52](https://inindca///compare/v3.0.0-alpha.51...v3.0.0-alpha.52) (2022-03-28)
+
+## [3.0.0-alpha.51](https://inindca///compare/v3.0.0-alpha.50...v3.0.0-alpha.51) (2022-03-24)
+
+
+### Features
+
+* **popup:** enabled shadowDOM ([4417291](https://inindca///commit/44172917a681874aca74910a95d774932d533534))
+
+
+### Bug Fixes
+
+* **gux-tabs-advanced:** addressed a few style issues that still needed attention after redesign ([e02e46a](https://inindca///commit/e02e46ad4e2578113fc4a599a9ad4a373b3aa1ca))
+* **pr-comment:** addressd PR comment ([8e8fb99](https://inindca///commit/8e8fb99714ce820bd5ed0bafe28f2a5442065e08))
+
+## [3.0.0-alpha.50](https://inindca///compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2022-03-23)
+
+
+### Features
+
+* **gux-icon:** add shield outline and shield solid svgs ([3535c0d](https://inindca///commit/3535c0db0e0477ae677bb011dc7f01f35ef5e680))
+* **table:** better no-content style and fixed scroll corner cases ([4290da6](https://inindca///commit/4290da627a34c7a7155080b7804fe8a102c0a539))
+* **table:** Enable shadow DOM for gux-table ([05c53ad](https://inindca///commit/05c53ada3d9dcb1eaca013c895906e24be470940))
+
+## [3.0.0-alpha.49](https://inindca///compare/v3.0.0-alpha.48...v3.0.0-alpha.49) (2022-03-22)
+
+
+### Features
+
+* **gux-tabs-advanced:** added tooltip when tab title overflows ([cd11010](https://inindca///commit/cd11010b86a6fa6430f03542e2e0a38bb101a3d7))
+* **gux-tabs-advanced:** rework focus styling and keyboard accessibility ([a0c8744](https://inindca///commit/a0c87444bf0cd7dd6692b32074120c0e3efe53f6))
+* **gux-tabs-advanced:** update test ([2604ab5](https://inindca///commit/2604ab5884441c838cc5e865001f3479d1bde6c6))
+* **gux-tabs-advanced:** updated styling to new designs and changed examples ([3c32b61](https://inindca///commit/3c32b61aa680e45b473272ab533cf408ee97de5d))
+* **gux-tabs-advanced:** updated tests ([91c02ee](https://inindca///commit/91c02ee03876aa94bf61e11495196183942728a4))
+
+
+### Bug Fixes
+
+* **gux-tabs-advanced:** remove empty styling div ([74f475d](https://inindca///commit/74f475d629cf091a7671c4500a80b25614ac5a91))
+* **gux-tabs-advanced:** remove menu kebab padding ([463e7ab](https://inindca///commit/463e7ab7b4d24289d9b51df68abddf52617fa4e7))
+* **gux-tabs-advanced:** style updates and changes to examples ([476f9fe](https://inindca///commit/476f9fe045055321c6e927abf3aacd8cb1b2d86e))
+* **gux-tabs-advanced:** test snapshot update ([74a43f1](https://inindca///commit/74a43f18ccafbaaa553f05c95629b1cbbecd0519))
+* **gux-tabs-advanced:** test update ([d09b8ad](https://inindca///commit/d09b8ad78c20eff3a62f6b7a84ee32a66cc08a22))
+* **gux-tabs-advanced:** use spacing variables ([ad1d1ed](https://inindca///commit/ad1d1ed1e52e1e0224e3fcfb0353698d2dc7991d))
+
+## [3.0.0-alpha.48](https://inindca///compare/v3.0.0-alpha.47...v3.0.0-alpha.48) (2022-03-21)
+
+
+### Features
+
+* **form-field:** explicitly set shadowDOM to false ([b53b9c6](https://inindca///commit/b53b9c6fc1ed4951485930ed3fb1168455e99469))
+
 ## [3.0.0-alpha.47](https://inindca///compare/v3.0.0-alpha.46...v3.0.0-alpha.47) (2022-03-16)
 
 
